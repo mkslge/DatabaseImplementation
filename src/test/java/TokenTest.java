@@ -1,5 +1,10 @@
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TokenTest {
@@ -37,6 +42,17 @@ public class TokenTest {
         assert(token.getType() == TokenType.BOOL);
         assert(token.hasBoolean());
         assert(token.getBoolean() == true);
+    }
+
+
+    @Test
+    public void tokenizeTestBasic() {
+        List<Token> expectedTokens = new ArrayList<>();
+        expectedTokens.add(new Token(TokenType.ORDER));
+        expectedTokens.add(new Token(TokenType.BY));
+        String input = "ORDER BY";
+        Lexer lexer = new Lexer(input);
+        assert(lexer.compareTokenList(expectedTokens));
     }
 
 

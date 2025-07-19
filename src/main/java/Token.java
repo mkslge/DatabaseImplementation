@@ -32,19 +32,23 @@ public class Token {
     }
 
     public boolean hasString() {
-        return stringLiteralContents.isPresent();
+        return stringLiteralContents != null && stringLiteralContents.isPresent();
     }
 
     public boolean hasInteger() {
-        return integerLiteralContents.isPresent();
+        return integerLiteralContents != null && integerLiteralContents.isPresent();
     }
 
     public boolean hasDouble() {
-        return doubleLiteralContents.isPresent();
+        return doubleLiteralContents != null &&doubleLiteralContents.isPresent();
     }
 
     public boolean hasBoolean() {
-        return booleanLiteralContents.isPresent();
+        return booleanLiteralContents != null && booleanLiteralContents.isPresent();
+    }
+
+    public boolean hasExtraData() {
+        return hasString() || hasInteger() || hasDouble() || hasBoolean();
     }
 
     public String getString() {
@@ -65,9 +69,39 @@ public class Token {
 
 
 
+
+
     public TokenType getType() {
         return this.type;
     }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Token token = (Token) o;
+
+        if(type != token.type) {
+            return false;
+        }
+
+        if(!hasExtraData()) {
+            return true;
+        } else if(hasBoolean()) {
+            return this.getBoolean() == token.getBoolean();
+        } else if(hasInteger()) {
+            return this.getInteger() == token.getInteger();
+        } else if(hasDouble()) {
+            return this.getDouble() == token.getDouble();
+        } else if(hasString()) {
+            return this.getString().equals(token.getString());
+        }
+        return false;
+    }
+
+
 
 
 

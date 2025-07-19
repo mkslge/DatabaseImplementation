@@ -145,5 +145,33 @@ public class Lexer {
         tokenizedOutput.add(new Token(tokenType));
     }
 
+    public List<Token> getTokenizedOutput() {
+        return this.tokenizedOutput;
+    }
+
+
+
+
+    public boolean compareTokenList(List<Token> otherTokens) {
+        int i = 0;
+
+
+        if(otherTokens.size() != getTokenizedOutput().size()) {
+            return false;
+        }
+
+
+
+        for(Token token : otherTokens) {
+            System.out.println(token.getType());
+            System.out.println(getTokenizedOutput().get(i).getType());
+            if(!token.equals(getTokenizedOutput().get(i))) {
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
+
 
 }
