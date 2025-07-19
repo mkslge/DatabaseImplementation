@@ -1,86 +1,38 @@
 public enum TokenType {
-    SELECT,
-    FROM,
-    WHERE,
-    INSERT,
-    INTO,
-    VALUES,
-    UPDATE,
-    SET,
-    DELETE,
 
-    CREATE,
-    TABLE,
-    DROP,
-    ALTER,
-    ADD,
-    PRIMARY,
-    KEY,
-    FOREIGN,
+    // Keywords - Data Manipulation
+    SELECT, FROM, WHERE, INSERT, INTO, VALUES, UPDATE, SET, DELETE,
 
-    JOIN,
-    INNER,
-    LEFT,
-    RIGHT,
-    FULL,
-    ON,
-    AS,
+    // Keywords - Data Definition
+    CREATE, TABLE, DROP, ALTER, ADD, PRIMARY, KEY, FOREIGN,
 
-    GROUP,
-    ORDER,
-    BY,
-    HAVING,
-    DISTINCT,
-    LIMIT,
-    OFFSET,
+    // Keywords - Joins
+    JOIN, INNER, LEFT, RIGHT, FULL, ON, AS,
 
+    // Keywords - Grouping and Sorting
+    GROUP, ORDER, BY, HAVING, DISTINCT, LIMIT, OFFSET,
+
+    // Data Types
     INTEGER, STRING, DOUBLE, BOOL,
 
-    AND,
-    OR,
-    NOT,
-    IN,
-    IS,
-    NULL,
-    LIKE,
-    BETWEEN,
-    EXISTS,
+    // Logical Operators
+    AND, OR, NOT, IN, IS, NULL, LIKE, BETWEEN, EXISTS,
 
-    PLUS,           // +
-    MINUS,          // -
-    STAR,           // *
-    SLASH,          // /
-    PERCENT,        // %
+    // Arithmetic Operators
+    PLUS, MINUS, STAR, SLASH, PERCENT,     // + - * / %
 
-    EQ,             // =
-    NEQ,            // != or <>
-    LT,             // <
-    LTE,            // <=
-    GT,             // >
-    GTE,            // >=
+    // Comparison Operators
+    EQ, NEQ, LT, LTE, GT, GTE,             // = != <> < <= > >=
 
-    LPAREN,         // (
-    RPAREN,         // )
-    COMMA,          // ,
-    DOT,            // .
-    SEMICOLON,      // ;
+    // Symbols
+    LPAREN, RPAREN, COMMA, DOT, SEMICOLON, // ( ) , . ;
 
-    STRING_LITERAL,
-    NUMERIC_LITERAL,
-    IDENTIFIER,
-    BOOLEAN_LITERAL,
+    // Literals
+    STRING_LITERAL, NUMERIC_LITERAL, IDENTIFIER, BOOLEAN_LITERAL, NULL_LITERAL,
 
+    // Comments
     LINE_COMMENT, BLOCK_COMMENT,
 
-    NULL_LITERAL,
-    EOF,                // End of input
-
-
-
-    Token() {
-
-    }
-
-
-
+    // Special
+    EOF
 }

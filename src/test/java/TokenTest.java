@@ -38,4 +38,6 @@ public class TokenTest {
         assert(token.hasBoolean());
         assert(token.getBoolean() == true);
     }
+
+
 }
